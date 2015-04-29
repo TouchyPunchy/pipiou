@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * PipiPlace
  *
- * @ORM\Table()
+ * @ORM\Table(name="pipiplace")
  * @ORM\Entity(repositoryClass="Pipiou\SiteBundle\Entity\PipiPlaceRepository")
  */
 class PipiPlace
