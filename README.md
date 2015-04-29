@@ -1,6 +1,14 @@
 Pipiou
 ======
 
+A small symfony2 project to discover "The greatest places to pee in the world".
+
+Requirements
+------------
+- PHP 5
+- MySql
+- Composer
+
 Installation
 ------------
 
