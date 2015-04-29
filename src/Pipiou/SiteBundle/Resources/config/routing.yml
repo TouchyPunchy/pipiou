@@ -1,0 +1,3 @@
+pipiou_site_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: PipiouSiteBundle:Default:index }

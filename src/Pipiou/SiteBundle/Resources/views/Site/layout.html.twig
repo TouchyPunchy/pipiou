@@ -1,0 +1,36 @@
+{# src/Pipiou/SiteBundle/Resources/views/layout.html.twig #}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{% block title %}Pipiou Demo Page{% endblock %}</title>
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+		<link rel="stylesheet" href="{{ asset('leaflet-awesome-markers/leaflet.awesome-markers.css') }}">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<link rel='stylesheet' href='{{ asset('lib/bootstrap/css/bootstrap.min.css') }}' type='text/css' media='all' />
+		<link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+		<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+	</head>
+	<body>
+		<nav class="navbar navbar-fixed-top navbar-main no-jump">
+		<div class="container"> 
+			<div class="navbar-header">
+			  <a class="navbar-brand title" href="{{ path('pipiou_site') }}">
+				<i class="fa fa-tint"></i> Pipiou
+			  </a>
+			</div>
+		
+			<ul class="nav navbar-nav navbar-right">
+				{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+				<li><a href="{{ path('fos_user_security_logout') }}">{{ app.user.username }} - logout</a></li>
+				{% else %}
+				<li><a href="{{ path('fos_user_security_login') }}">login</a></li>
+				<li><a href="{{ path('fos_user_registration_register') }}">register</a></li>
+				{% endif %}
+			</ul>
+		</div>
+	</nav>
+		{% block body %}{% endblock %}
+		{% block javascripts %}{% endblock %}
+	</body>
+</html>

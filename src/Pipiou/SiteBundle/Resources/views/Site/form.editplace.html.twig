@@ -1,0 +1,12 @@
+{# app/Resources/views/Site/form.editplace.html.twig #}
+<h2>{{ form_title }}</h2>
+{{ form_start(form) }}
+<div class="form-group">
+<label>Name</label>
+{{ form_widget(form.name, { 'attr': {'class': 'form-control', id : 'pipiplace-name', 'placeholder': 'Enter location name'}}) }}
+</div>
+<div class="form-group">
+<label>Longitude &amp; Latitude</label>
+{{ form_widget(form.position, { 'attr': {'class': 'form-control', id : 'pipiplace-position', 'placeholder': '','readonly' : 'readonly'}}) }}
+</div>
+{{ form_end(form) }}

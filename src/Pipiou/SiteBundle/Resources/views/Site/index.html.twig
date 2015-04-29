@@ -1,0 +1,57 @@
+ {# src/Pipiou/SiteBundle/Resources/views/Site/index.html.twig #}
+ {% extends "PipiouSiteBundle:Site:layout.html.twig" %}
+
+ {% block body %}
+	<header id="main-header">
+		<div class="darker">
+			<div class="container">
+				<p class="slogan">The greatest places to pee in the world.</p>
+		
+				<div id="map" data-places="{{ places_json }}"></div>				
+			</div>
+		</div>
+	</header>
+	<section class="container">
+		<div class="row">
+			{% if is_granted('ROLE_USER') %}
+			<div class="col-md-6">
+				{{ include('PipiouSiteBundle:Site:form.editplace.html.twig', {'form': form}) }}
+			</div>
+			<div class="col-md-6">
+			{% else %}
+			<div class="col-md-12">
+			{% endif %}
+				<h2>All Places</h2>
+			    {% for place in places %}
+			        <div class="place darker">
+			        <a href="{{ path('pipiou_site_edit_place', {id : place.id})}}">
+			        {{ place.getName|e }} ({{ place.getPosition }})</a>
+			        </div>
+			    {% endfor %}
+
+			    <h2>Places Nearby</h2>
+			    {% for place in places_nearby %}
+			        <div class="place darker">
+			        <a href="{{ path('pipiou_site_edit_place', {id : place.id})}}">
+			        {{ place.getName|e }} ({{ place.getPosition }})</a>
+			        </div>
+			    {% endfor %}
+			</div>
+		</div>
+	</section>
+	<footer>
+		<div class="container">Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.
+		</div>
+	</footer>
+ {% endblock %}
+
+ {% block javascripts %}
+
+<!-- JS -->
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<script type="text/javascript" src="{{ asset('leaflet-awesome-markers/leaflet.awesome-markers.min.js') }}"></script>
+<script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.3.0"></script>
+<script type="text/javascript" src="{{ asset('lib/jquery/dist/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('lib/bootstrap/js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/pipiou.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,152 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,700|Montserrat:400,700|Open+Sans:300italic,400italic,600italic,300,600,400);
+/* colors */
+
+body{
+  background-color: #FFD53D;
+}
+footer{
+	background-color:#000;
+}
+footer a{
+	color: #fff;
+	font-weight: bold;
+}
+.darker{
+	background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* layout */
+section{
+	padding-bottom:24px;
+}
+footer{
+	padding: 24px;
+	height: 180px;
+}
+body,
+input,
+button,
+select,
+textarea {
+  font-family: 'Open Sans', sans-serif;
+}
+.title,
+h1,
+h2,
+h3,
+h4,
+.navbar-main {
+  font-family: 'Montserrat', sans-serif;
+}
+.navbar-main {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.navbar-main .navbar-right {
+  margin-right: 0px ;
+}
+.navbar-main a,
+.navbar-main span {
+  color: white ;
+}
+.title {
+  font-size: 150% ;
+}
+.title .glyphicon {
+  font-size: 70% ;
+}
+#main-header {
+  background-image: url(../img/swirl_pattern.png);
+  background-position: repeat ;
+  color: white ;
+  padding-top: 50px ;
+}
+#main-header .slogan {
+  margin: 20px ;
+  font-size: 120% ;
+  font-weight: 200 ;
+  font-style: italic ;
+}
+.title + p,
+.step-title + p {
+  padding-left: 20px ;
+  padding-bottom: 10px ;
+}
+.image-place-holder {
+  background-color: #f5f5f5 ;
+  font-size: 96px ;
+  text-align: center ;
+  color: #999999 ;
+}
+.image-place-holder .glyphicon {
+  position: relative ;
+  top: calc( 50% - 57px );
+}
+.btn-demo {
+  text-align: left ;
+  width: 170px ;
+  margin: 5px auto ;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px ;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white ;
+}
+.btn-demo:hover {
+  text-decoration: none ;
+}
+.btn-demo .glyphicon,
+.btn-demo .icon {
+  font-size: 130% ;
+  vertical-align: bottom ;
+  margin-right: 15px ;
+}
+.btn-demo .icon {
+  font-size: 100% ;
+}
+.icon-help {
+  opacity: 0.7 ;
+  margin: 15px auto ;
+  width: 350px ;
+}
+.icon-help .icon {
+  font-size: 36px ;
+  margin: 8px ;
+}
+
+.icon-help-text {
+  font-size: 16px ;
+  font-weight: 200 ;
+  opacity: 0.6 ;
+}
+.input-group-btn .btn-default {
+  color: #555 ;
+}
+.btn-justify .pull-left,
+.btn-justify .pull-right {
+  color: #555 ;
+  top: 2px ;
+}
+.navbar-cropper a {
+  font-size: 24px ;
+  color: #333 ;
+}
+.navbar-cropper a:hover {
+  color: #0077cf ;
+  border-radius: 50% ;
+}
+
+/* Map */
+#map { 
+	height: 540px; 
+	margin-bottom: 20px;
+  color: #000;
+}
+
+.place{
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 6px;
+  margin-bottom: 12px;
+}
+.place a, .place a:hover{
+  color: white;
+}
