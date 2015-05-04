@@ -3,6 +3,7 @@
 namespace Pipiou\SiteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * PipiPlace
@@ -35,6 +36,30 @@ class PipiPlace
      */
     private $position;
 
+    /**
+     * @ORM\OneToMany(targetEntity="PipiPlaceEvaluation", mappedBy="place")
+     */
+    protected $evaluations;    
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Pipiou\UserBundle\Entity\User", inversedBy="places_created")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    protected $user_creator;
+
+    public function __construct()
+    {
+        $this->evaluations = new ArrayCollection();
+    }
+
+    public function getData(){
+        return array(
+            'id' => $this->id,
+            'name' => $this->name,
+            'position' => $this->position,
+            'creator' => $this->getUserCreator()->getUsername()
+        );
+    }
 
     /**
      * Get id
@@ -90,5 +115,61 @@ class PipiPlace
     public function getPosition()
     {
         return $this->position;
+    }
+
+    /**
+     * Add evaluations
+     *
+     * @param \Pipiou\SiteBundle\Entity\PipiPlaceEvaluation $evaluations
+     * @return PipiPlace
+     */
+    public function addEvaluation(\Pipiou\SiteBundle\Entity\PipiPlaceEvaluation $evaluations)
+    {
+        $this->evaluations[] = $evaluations;
+
+        return $this;
+    }
+
+    /**
+     * Remove evaluations
+     *
+     * @param \Pipiou\SiteBundle\Entity\PipiPlaceEvaluation $evaluations
+     */
+    public function removeEvaluation(\Pipiou\SiteBundle\Entity\PipiPlaceEvaluation $evaluations)
+    {
+        $this->evaluations->removeElement($evaluations);
+    }
+
+    /**
+     * Get evaluations
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEvaluations()
+    {
+        return $this->evaluations;
+    }
+
+    /**
+     * Set user_creator
+     *
+     * @param \Pipiou\UserBundle\Entity\User $userCreator
+     * @return PipiPlace
+     */
+    public function setUserCreator(\Pipiou\UserBundle\Entity\User $userCreator = null)
+    {
+        $this->user_creator = $userCreator;
+
+        return $this;
+    }
+
+    /**
+     * Get user_creator
+     *
+     * @return \Pipiou\UserBundle\Entity\User 
+     */
+    public function getUserCreator()
+    {
+        return $this->user_creator;
     }
 }

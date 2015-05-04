@@ -36,15 +36,20 @@ class PipiouController extends Controller
 	    	$place = $form->getData();
 	    	$coords = explode(" ", $place->getPosition());
 	    	$place->setPosition(new Point($coords[0], $coords[1]));
+            $place->setUserCreator($this->getUser());
 	    	$em->persist($place);
     		$em->flush();
 	    }
 
     	$places = $repository->findBy(array());///*,array('price' => 'ASC'));*/
 		$encoders = array(new JsonEncoder());
-		$normalizers = array(new GetSetMethodNormalizer());
+        $normalizers = array(new GetSetMethodNormalizer());
 		$serializer = new Serializer($normalizers, $encoders);
-		$places_json = $serializer->serialize($places, 'json');
+
+        $places_dto = array();
+        foreach ($places as $place)
+            $places_dto[] = $place->getData();
+		$places_json = $serializer->serialize($places_dto, 'json');
 
         $places_nearby = $repository->findBetween(0,0,100,100);
 
@@ -87,9 +92,12 @@ class PipiouController extends Controller
 
     	$places = $repository->findBy(array());
 		$encoders = array(new JsonEncoder());
-		$normalizers = array(new GetSetMethodNormalizer());
-		$serializer = new Serializer($normalizers, $encoders);
-		$places_json = $serializer->serialize($places, 'json');
+        $normalizers = array(new GetSetMethodNormalizer());
+        $serializer = new Serializer($normalizers, $encoders);
+		$places_dto = array();
+        foreach ($places as $place)
+            $places_dto[] = $place->getData();
+        $places_json = $serializer->serialize($places_dto, 'json');
 
         $places_nearby = $repository->findBetween(0,0,100,100);
 

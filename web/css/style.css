@@ -150,3 +150,20 @@ h4,
 .place a, .place a:hover{
   color: white;
 }
+
+/* BS Fixes */
+.navbar-nav>li, .navbar-nav {
+float: left !important;
+}
+
+.navbar-collapse.collapse {
+display: block!important;
+}
+
+.navbar-nav.navbar-right:last-child {
+margin-right: -15px !important;
+}
+
+.navbar-right {
+float: right!important;
+}

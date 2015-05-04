@@ -22,6 +22,7 @@ function show_map(position) {
 		var marker = L.marker(pos, {icon: pipiMarker, clickable: true});
 		marker.name = p.name;
 		marker.id = p.id;
+		marker.creator = p.creator;
 		marker.on('click', onMarkerClick);
 		markers.push(marker);
 		marker.addTo(map);
@@ -38,7 +39,7 @@ function show_map(position) {
 	}
 
 	function onMarkerClick(e){
-		alert(e.target.name + " " + e.target.id);
+		alert(e.target.name + " " + e.target.id + ", added by " + e.target.creator);
 	}
 
 	map.on('click', onMapClick);
