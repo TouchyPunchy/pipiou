@@ -1,0 +1,46 @@
+{# app/Resources/views/Site/form.editplace.html.twig choice_widget_expanded #}
+
+<h2>{{ form_title }}</h2>
+{{ form_start(form) }}
+
+<div class="form-group">
+<label>Gender</label>
+{{ form_widget(form.gender, { 'attr': {'class': 'form-control'}}) }}
+</div>
+
+<div class="form-group">
+<label>Rating</label>
+<div class="input-group">
+{{ form_widget(form.rating, { 'attr': {'class': 'rating'}}) }}
+</div>
+</div>
+
+<div class="form-group">
+<label>Cleanliness</label>
+<div class="input-group">
+{{ form_widget(form.cleanliness, { 'attr': {'class': 'rating'}}) }}
+</div>
+</div>
+
+<div class="form-group">
+<label>Door</label>
+{{ form_widget(form.door, { 'attr': {'class': ''}}) }}
+</div>
+
+<div class="form-group">
+<label>Paper</label>
+{{ form_widget(form.paper, { 'attr': {'class': ''}}) }}
+</div>
+
+<div class="form-group">
+<label>Music</label>
+{{ form_widget(form.music, { 'attr': {'class': ''}}) }}
+</div>
+
+<div class="form-group">
+<label>Price</label>
+{{ form_widget(form.price, { 'attr': {'class': 'form-control'}}) }}
+</div>
+
+
+{{ form_end(form) }}

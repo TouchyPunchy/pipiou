@@ -24,7 +24,7 @@
 				<h2>All Places</h2>
 			    {% for place in places %}
 			        <div class="place darker">
-			        <a href="{{ path('pipiou_site_edit_place', {id : place.id})}}">
+			        <a href="{{ path('pipiou_site_evaluate_place', {id : place.id})}}">
 			        {{ place.getName|e }} ({{ place.getPosition }})</a>
 			        </div>
 			    {% endfor %}
@@ -32,7 +32,7 @@
 			    <h2>Places Nearby</h2>
 			    {% for place in places_nearby %}
 			        <div class="place darker">
-			        <a href="{{ path('pipiou_site_edit_place', {id : place.id})}}">
+			        <a href="{{ path('pipiou_site_evaluate_place', {id : place.id})}}">
 			        {{ place.getName|e }} ({{ place.getPosition }})</a>
 			        </div>
 			    {% endfor %}

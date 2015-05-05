@@ -9,6 +9,11 @@ Requirements
 - MySql
 - Composer
 
+Symfony2 Bundles (cf composer.json for complete list) :
+- Doctrine, Doctrine Fixtures
+- FOSUserBundle
+- creof/doctrine2-spatial
+
 Installation
 ------------
 
@@ -16,7 +21,7 @@ Installation
 # load dependencies
 > composer install
 
-# check your db config in 
+# check your db config in
 > app/config/parameters.yml
 
 # run you mysql server (xampp or whatever)
@@ -29,7 +34,7 @@ Installation
 > php app/console doctrine:schema:update --force
 
 # load test data in db (use --append if you want to keep the existing data)
-> php app/console doctrine:fixtures:load 
+> php app/console doctrine:fixtures:load
 
 #profit
 > php app/console server:run

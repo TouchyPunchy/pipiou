@@ -29,3 +29,7 @@ fos_user_change_password:
 pipiou_site_edit_place:
     path:     /{id}
     defaults: { _controller: PipiouSiteBundle:Pipiou:edit }
+
+pipiou_site_evaluate_place:
+    path:     /evaluate/{id}
+    defaults: { _controller: PipiouSiteBundle:Pipiou:evaluate }
