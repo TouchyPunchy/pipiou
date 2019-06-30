@@ -103,7 +103,7 @@ class PipiouController extends Controller
         $places_nearby = $repository->findBetween(0,0,100,100);
 
         return $this->render(
-            'PipiouSiteBundle:Site:index.html.twig',
+            'PipiouSiteBundle:Site:section.index.html.twig',
             array(
             	'form_title' => "Edit Place",
             	'form' => $form->createView(),

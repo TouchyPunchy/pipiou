@@ -13,23 +13,23 @@
 	</head>
 	<body>
 		<nav class="navbar navbar-fixed-top navbar-main no-jump">
-		<div class="container"> 
-			<div class="navbar-header">
-			  <a class="navbar-brand title" href="{{ path('pipiou_site') }}">
-				<i class="fa fa-tint"></i> Pipiou
-			  </a>
+			<div class="container-fluid"> 
+				<div class=""><!-- navbar-header -->
+					<a class="navbar-brand title" href="{{ path('pipiou_site') }}">
+						<i class="fa fa-tint"></i> Pipiou WAT
+					</a>
+				</div>
+			
+				<ul class="nav navbar-nav navbar-right">
+					{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+					<li><a href="{{ path('fos_user_security_logout') }}">{{ app.user.username }} - logout</a></li>
+					{% else %}
+					<li><a href="{{ path('fos_user_security_login') }}">login</a></li>
+					<li><a href="{{ path('fos_user_registration_register') }}">signup</a></li>
+					{% endif %}
+				</ul>
 			</div>
-		
-			<ul class="nav navbar-nav navbar-right">
-				{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-				<li><a href="{{ path('fos_user_security_logout') }}">{{ app.user.username }} - logout</a></li>
-				{% else %}
-				<li><a href="{{ path('fos_user_security_login') }}">login</a></li>
-				<li><a href="{{ path('fos_user_registration_register') }}">register</a></li>
-				{% endif %}
-			</ul>
-		</div>
-	</nav>
+		</nav>
 		{% block body %}{% endblock %}
 		{% block javascripts %}{% endblock %}
 	</body>
